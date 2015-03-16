@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Index html file for rest</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<!--<form method="get" id = "demo" action="./rest/myshop/home">
+<input type= "submit" value="submit">
+</form>  -->
+
+<script>
+
+$.ajax({
+type: "GET",
+url: "http://localhost:8080/cart/rest/myshop/display",
+dataType: "json",
+success: function(resp){
+
+    for(var i = 0; i < resp.length;i++) {
+    /*document.getElementById("demo").innerHTML=resp[i];
+    var node = document.createElement("LI");
+    var textnode = document.createTextNode(resp[i]);
+    node.appendChild(textnode);
+    document.getElementById("demo").appendChild(node);*/
+    var btn = document.createElement("DIV");
+    var t = document.createTextNode(resp[i]);
+    document.write("<br>");
+    btn.appendChild(t);
+    document.body.appendChild(btn);
+
+    //alert("Server said123:\n '" + resp[i] + "'");
+    }
+},
+
+error: function(e){
+           alert('Error121212: ' + e);
+}
+});
+
+$("div").click(function(){alert(
+</script>
+</body>
+</html>
+
+
+
